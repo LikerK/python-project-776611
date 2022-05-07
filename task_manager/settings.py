@@ -29,7 +29,7 @@ ALLOWED_HOSTS = [
     'webserver',
     '127.0.0.1',
     '0.0.0.0',
-    'desolate-escarpment-42735.herokuapp.com',
+    'immense-wave-07675.herokuapp.com',
 ]
 
 # Application definition
