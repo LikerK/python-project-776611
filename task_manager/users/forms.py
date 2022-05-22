@@ -1,9 +1,8 @@
-from dataclasses import field
 from django.contrib.auth.forms import UserCreationForm
 
 from .models import User
 
-class UserCreationForm(UserCreationForm):
+class UserForm(UserCreationForm):
     class Meta(UserCreationForm):
         model = User
         fields = [

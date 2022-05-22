@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container wrapper">
+    <a class="nav-link" href="{% url 'statuses:create' %}">Создать</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>{% translate "User name" %}</td>
+                <td>{% translate "Date of creation" %}</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for status in statuses %}
+            <tr>
+                <td>{{ status.id }}</td>
+                <td>{{ status.name }}</td>
+                <td>
+                    <a href="{% url 'statuses:change' status.id %}">{% translate "Change" %}</a>
+                    <br>
+                    <a href="{% url 'statuses:delete' status.id %}">{% translate "Delete" %}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

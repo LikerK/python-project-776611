@@ -1,0 +1,51 @@
+{% load i18n %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{% translate 'Task manager' %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+      <a class="navbar-brand" href="/">Менеджер задач</a>
+      <button class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarToggleExternalContent" style>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'users:list' %}">Пользователи</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'statuses:list' %}">Статусы</a>
+          </li>
+          {% endif %}
+        </ul>
+        <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Выход</a>
+          </li>
+        {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Вход</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'users:create' %}">Регистрация</a>
+            </li>
+        {% endif %}
+        </ul>
+      </div>
+    </nav>
+    <div class="container wrapper flex-grow-1">
+      {% bootstrap_messages %}
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>
