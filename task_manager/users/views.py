@@ -1,84 +1,95 @@
-from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import User
+from task_manager.constants.templates import USER, FORM, DELETE
+from task_manager.constants.success_urls import USERS_LIST, LOGIN
+from task_manager.constants.contexts.users import (
+    CREATE_TITLE, 
+    DELETE_TITLE, 
+    LIST_TITLE,
+)
+from task_manager.constants.contexts.common_constant import (
+    CHANGE_TEXT, 
+    CREATE_TEXT, 
+    CHANGE_TEXT, 
+    DELETE_TEXT, 
+    TEXT, TITLE, 
+    BUTTON_TEXT, 
+    TEXT_CONTENT,
+)
+from task_manager.constants.success_messages import (
+    CREATE_USER,
+    CHANGE_USER,
+    DELETE_USER,
+) 
 from django.contrib.auth import get_user_model
-from django.contrib import messages
 from .forms import UserForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
-from django.utils.translation import gettext_lazy
 from django.contrib.messages.views import SuccessMessageMixin
+from task_manager.utils import CustomLoginRequiredMixin
+
 
 User = get_user_model()
 
 
+
 class UserList(ListView):
     model = User
-    template_name = 'users.html'
+    template_name = USER
     context_object_name = 'users'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = gettext_lazy('Users')
+        context[TITLE] = LIST_TITLE
         return context
 
 
 class CreateUser(SuccessMessageMixin, CreateView):
     model = User
-    template_name = 'form.html'
     form_class = UserForm
-    success_url = reverse_lazy('login')
-    success_message = gettext_lazy("Created user successfully")
+    template_name = FORM
+    success_url = LOGIN
+    success_message = CREATE_USER
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = gettext_lazy('Registration')
-        context['button_text'] = gettext_lazy('Register')
+        context[TITLE] = CREATE_TITLE
+        context[BUTTON_TEXT] = CREATE_TEXT
         return context
 
 
-class ChangeUser(UpdateView, LoginRequiredMixin):
+class ChangeUser(
+    CustomLoginRequiredMixin,
+    SuccessMessageMixin, 
+    UpdateView, 
+    LoginRequiredMixin
+    ):
     model = User
-    template_name = 'form.html'
     form_class = UserForm
-    success_url = reverse_lazy('users:list')
-    unable_to_change_others_message = gettext_lazy(
-        'You do not have permission to change another user.',
-    )
+    template_name = FORM
+    success_url = USERS_LIST
+    success_message = CHANGE_USER
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['button_text'] = gettext_lazy('Change')
+        context[BUTTON_TEXT] = CHANGE_TEXT
         return context
     
-    def get(self, request, *args, **kwargs):
-        if request.user != self.get_object():
-            messages.error(
-                self.request, self.unable_to_change_others_message,
-            )
-            return redirect('users:list')
-        return super().get(request, *args, **kwargs)
 
 
-class DeleteUser(DeleteView):
+class DeleteUser(
+    CustomLoginRequiredMixin,
+    SuccessMessageMixin, 
+    DeleteView,
+):
     model = User
-    template_name = 'delete.html'
-    success_url = reverse_lazy('users:list')
-    error_message = gettext_lazy('Error')
+    template_name = DELETE
+    success_url = USERS_LIST
+    success_message = DELETE_USER
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['button_text'] = gettext_lazy('Delete')
-        context['title'] = gettext_lazy('Delete User')
-        context['text'] = gettext_lazy('Are you sure you want to delete')
+        context[BUTTON_TEXT] = DELETE_TEXT
+        context[TITLE] = DELETE_TITLE
+        context[TEXT] = TEXT_CONTENT
         return context
-
-    def get(self, request, *args, **kwargs):
-        if request.user != self.get_object():
-            messages.error(self.request, self.error_message)
-            return redirect('users:list')
-        return super().get(request, *args, **kwargs)
-
-
-
-

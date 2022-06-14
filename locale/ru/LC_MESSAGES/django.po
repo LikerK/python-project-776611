@@ -30,11 +30,11 @@ msgstr "Вы точно хотите удалить пользователя"
 
 #: task_manager/templates/users/users.html:11
 msgid "User name"
-msgstr "Имя"
+msgstr "Имя пользователя"
 
 #: task_manager/templates/users/users.html:12
 msgid "Full name"
-msgstr "Фамилия"
+msgstr "Полное имя"
 
 #: task_manager/templates/users/users.html:13
 msgid "Date of creation"

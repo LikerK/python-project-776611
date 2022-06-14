@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container wrapper">
+    <a class="nav-link" href="{% url 'labels:create' %}">Создать</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>{% translate "User name" %}</td>
+                <td>{% translate "Date of creation" %}</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for label in labels %}
+            <tr>
+                <td>{{ label.id }}</td>
+                <td>{{ label.name }}</td>
+                <td>
+                    <a href="{% url 'labels:change' label.id %}">{% translate "Change" %}</a>
+                    <br>
+                    <a href="{% url 'labels:delete' label.id %}">{% translate "Delete" %}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

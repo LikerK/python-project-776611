@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container wrapper">
+    <a class="nav-link" href="{% url 'tasks:create' %}">Создать</a>
+    <div class="card mb-3">
+        <div class="card-body bg-light">
+            <form class="form-inline center my-auto" method="get">
+                {% csrf_token %}
+                {% bootstrap_form filter.form form_group_class="form-group" field_class="ml-2 mr-3" %}
+                {% bootstrap_button button_text button_type="submit" button_class="btn-primary" %}
+            </form>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>{% translate "User name" %}</td>
+                <td>{% translate "Status" %}</td>
+                <td>{% translate "Author" %}</td>
+                <td>{% translate "Executor" %}</td>
+                <td>{% translate "Date of creation" %}</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.name }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.author }}</td>
+                <td>{{ task.executor }}</td>
+                <td>{{ task.date_joined }}</td>
+                <td>
+                    <a href="{% url 'tasks:change' task.id %}">{% translate "Change" %}</a>
+                    <br>
+                    <a href="{% url 'tasks:delete' task.id %}">{% translate "Delete" %}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
