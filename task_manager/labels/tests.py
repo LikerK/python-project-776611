@@ -23,8 +23,8 @@ class LabelsTestCase(TestCase):
         label_for_task = Label.objects.create(
             name='test_label_in_task',
         )
-        label = Label.objects.create(
-            name = 'test_label1'
+        Label.objects.create(
+            name='test_label1',
         )
         task = Task.objects.create(
             name='test_task',
@@ -34,7 +34,6 @@ class LabelsTestCase(TestCase):
         task.label.add(label_for_task)
         self.client.force_login(user)
 
-
     def test_labels_list(self):
         response = self.client.get(reverse('labels:list'))
         self.assertEqual(response.status_code, OK_CODE)
@@ -43,7 +42,6 @@ class LabelsTestCase(TestCase):
             Label.objects.all(),
             ordered=False,
         )
-    
 
     def test_create_label(self):
         response = self.client.get(reverse('labels:create'))
@@ -53,7 +51,6 @@ class LabelsTestCase(TestCase):
             },)
         self.assertEqual(response.status_code, REDIRECT_CODE)
         self.assertEqual('test_status3', Label.objects.get(pk=3).name)
-    
 
     def test_updage_label(self):
         response = self.client.get(reverse('labels:change', args='1'))
@@ -63,7 +60,6 @@ class LabelsTestCase(TestCase):
             },)
         self.assertEqual(response.status_code, REDIRECT_CODE)
         self.assertEqual('test_change_status', Label.objects.get(pk=1).name)
-    
 
     def test_delete_label(self):
         response = self.client.get(reverse('labels:delete', args='2'))
@@ -74,7 +70,6 @@ class LabelsTestCase(TestCase):
         with self.assertRaises(Label.DoesNotExist):
             Label.objects.get(pk=2)
 
-    
     def test_delete_label_in_task(self):
         response = self.client.get(reverse('labels:delete', args='1'))
         self.assertEqual(response.status_code, OK_CODE)

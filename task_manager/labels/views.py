@@ -28,17 +28,18 @@ from .forms import LabelForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from task_manager.utils import CustomDeleteMixin
 
+
 # Create your views here.
 class LabelList(LoginRequiredMixin, ListView):
     model = Label
     template_name = LABEL
     context_object_name = 'labels'
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context[TITLE] = TITLE_LIST
         return context
-    
+
 
 class CreateLabel(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Label
@@ -46,7 +47,7 @@ class CreateLabel(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     template_name = FORM
     success_url = LABELS_LIST
     success_message = CREATE_LABEL
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context[TITLE] = TITLE_CREATE
@@ -60,14 +61,12 @@ class UpdateLabel(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     template_name = FORM
     success_url = LABELS_LIST
     success_message = CHANGE_LABEL
-    
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context[TITLE] = TITLE_CHANGE
         context[BUTTON_TEXT] = CHANGE_TEXT
         return context
-
 
 
 class DeleteLabel(CustomDeleteMixin):

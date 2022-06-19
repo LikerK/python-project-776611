@@ -7,9 +7,11 @@ from django.contrib.auth.mixins import AccessMixin
 from django.db.models import ProtectedError, RestrictedError
 from task_manager.constants.success_messages import ERROR_MESSAGE
 
+
 class CustomLoginRequiredMixin(AccessMixin):
     error_message = ERROR_MESSAGE
     redirect_url = 'users:list'
+
     def dispatch(self, request, *args, **kwargs):
         if request.user != self.get_object():
             messages.error(self.request, self.error_message)
@@ -25,7 +27,6 @@ class CustomDeleteMixin(
     deletion_error_message = None
     success_url = None
 
-
     def post(self, request, *args, **kwargs):
         try:
             return super().post(request, *args, **kwargs)
@@ -34,4 +35,3 @@ class CustomDeleteMixin(
         except RestrictedError:
             messages.error(self.request, self.deletion_error_message,)
         return redirect(self.success_url)
-            

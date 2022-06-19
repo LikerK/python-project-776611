@@ -1,5 +1,4 @@
-from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView
 from .models import Status
 from task_manager.constants.templates import STATUS, FORM, DELETE
 from task_manager.constants.success_urls import STATUSES_LIST
@@ -35,13 +34,12 @@ class StatusList(LoginRequiredMixin, ListView):
     model = Status
     template_name = STATUS
     context_object_name = 'statuses'
-    
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context[TITLE] = LIST_TITLE
         return context
-    
+
 
 class CreateStatus(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Status
@@ -69,6 +67,7 @@ class UpdateStatus(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         context[TITLE] = CHANGE_STATUS
         context[BUTTON_TEXT] = CHANGE_TEXT
         return context
+
 
 class DeleteStatus(CustomDeleteMixin):
     model = Status

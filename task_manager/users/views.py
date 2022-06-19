@@ -1,36 +1,29 @@
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import User
-from django.contrib import messages
 from task_manager.constants.templates import USER, FORM, DELETE
 from task_manager.constants.success_urls import USERS_LIST, LOGIN
 from task_manager.constants.contexts.users import (
-    CREATE_TITLE, 
-    DELETE_TITLE, 
+    CREATE_TITLE,
+    DELETE_TITLE,
     LIST_TITLE,
 )
 from task_manager.constants.contexts.common_constant import (
-    CHANGE_TEXT, 
-    CREATE_TEXT, 
-    CHANGE_TEXT, 
-    DELETE_TEXT, 
-    TEXT, TITLE, 
-    BUTTON_TEXT, 
+    CREATE_TEXT,
+    CHANGE_TEXT,
+    DELETE_TEXT,
+    TEXT, TITLE,
+    BUTTON_TEXT,
     TEXT_CONTENT,
 )
 from task_manager.constants.success_messages import (
     CREATE_USER,
     CHANGE_USER,
     DELETE_USER,
-) 
-from django.contrib.auth import get_user_model
+)
 from .forms import UserForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from task_manager.utils import CustomLoginRequiredMixin
-
-
-User = get_user_model()
-
 
 
 class UserList(ListView):
@@ -60,27 +53,25 @@ class CreateUser(SuccessMessageMixin, CreateView):
 
 class ChangeUser(
     CustomLoginRequiredMixin,
-    SuccessMessageMixin, 
-    UpdateView, 
+    SuccessMessageMixin,
+    UpdateView,
     LoginRequiredMixin
-    ):
+):
     model = User
     form_class = UserForm
     template_name = FORM
     success_url = USERS_LIST
     success_message = CHANGE_USER
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context[BUTTON_TEXT] = CHANGE_TEXT
         return context
-    
 
 
 class DeleteUser(
     CustomLoginRequiredMixin,
-    SuccessMessageMixin, 
+    SuccessMessageMixin,
     DeleteView,
 ):
     model = User

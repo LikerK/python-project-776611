@@ -18,16 +18,15 @@ class StatusTestCase(TestCase):
         status_for_task = Status.objects.create(
             name='test_status_in_task'
         )
-        task = Task.objects.create(
+        Task.objects.create(
             name='test_task',
             status=status_for_task,
             author=user,
         )
-        status = Status.objects.create(
+        Status.objects.create(
             name='test_status2'
         )
         self.client.force_login(user)
-
 
     def test_statuses_list(self):
         response = self.client.get(reverse('statuses:list'))
@@ -37,7 +36,6 @@ class StatusTestCase(TestCase):
             Status.objects.all(),
             ordered=False,
         )
-    
 
     def test_create_status(self):
         response = self.client.get(reverse('statuses:create'))
@@ -47,17 +45,15 @@ class StatusTestCase(TestCase):
             },)
         self.assertEqual(response.status_code, REDIRECT_CODE)
         self.assertEqual('test_status3', Status.objects.get(pk=3).name)
-    
 
     def test_updage_status(self):
         response = self.client.get(reverse('statuses:change', args='1'))
         self.assertEqual(response.status_code, OK_CODE)
-        response = self.client.post(reverse('statuses:change', args='1'), data={
+        response = self.client.post(reverse('statuses:change', args='1'), data={  # noqa: E501
             'name': 'test_change_status'
             },)
         self.assertEqual(response.status_code, REDIRECT_CODE)
         self.assertEqual('test_change_status', Status.objects.get(pk=1).name)
-    
 
     def test_delete_status(self):
         response = self.client.get(reverse('statuses:delete', args='2'))
@@ -68,7 +64,6 @@ class StatusTestCase(TestCase):
         with self.assertRaises(Status.DoesNotExist):
             Status.objects.get(pk=2)
 
-    
     def test_delete_status_in_task(self):
         response = self.client.get(reverse('statuses:delete', args='1'))
         self.assertEqual(response.status_code, OK_CODE)

@@ -48,7 +48,7 @@ class Task(models.Model):
         through='LabelTaskIntermediate',
         through_fields=('task', 'label'),
     )
-    created_at=models.DateTimeField(
+    created_at = models.DateTimeField(
         auto_now_add=True,
         verbose_name=gettext_lazy('Date of create'),
     )
@@ -59,6 +59,7 @@ class Task(models.Model):
     class Meta:
         verbose_name = gettext_lazy('Task')
         ordering = ['id']
+
 
 class LabelTaskIntermediate(models.Model):
     label = models.ForeignKey(Label, on_delete=models.RESTRICT)

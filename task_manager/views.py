@@ -25,6 +25,7 @@ class LoginUser(SuccessMessageMixin, LoginView):
 
 class LogoutUser(SuccessMessageMixin, LogoutView):
     next_page = reverse_lazy('home')
+
     def dispatch(self, request, *args, **kwargs):
         messages.add_message(request, messages.INFO, gettext_lazy('Succsess'))
         return super().dispatch(request, *args, **kwargs)

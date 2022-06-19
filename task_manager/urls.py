@@ -1,7 +1,5 @@
 from django.urls import path, include
-from task_manager.users import *
-from task_manager.tasks import *
-from task_manager.views import *
+from task_manager.views import LoginUser, LogoutUser, Index
 from django.contrib import admin
 
 urlpatterns = [

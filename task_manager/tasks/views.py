@@ -38,7 +38,7 @@ class TaskList(LoginRequiredMixin, FilterView):
     template_name = TASK
     context_object_name = 'tasks'
     filterset_class = TaskFilter
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context[TITLE] = LIST_TITLE

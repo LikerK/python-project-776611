@@ -1,5 +1,10 @@
 from django.urls import path
-from task_manager.labels.views import *
+from task_manager.labels.views import (
+    LabelList,
+    CreateLabel,
+    UpdateLabel,
+    DeleteLabel,
+)
 
 app_name = 'labels'
 

@@ -39,15 +39,14 @@ class UserTestCase(TestCase):
             password='seconduserpassword',
         )
         second_user.save()
-    
-    def test_home_page(self):
 
+    def test_home_page(self):
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, OK_CODE)
         self.assertTemplateUsed(
             response, template_name='index.html'
         )
-    
+
     def test_users_list(self):
         response = self.client.get(reverse('users:list'))
         self.assertEqual(response.status_code, OK_CODE)
@@ -59,8 +58,6 @@ class UserTestCase(TestCase):
         self.assertEqual(user.first_name, 'Djon')
         self.assertEqual(user.last_name, 'Snow')
 
-
-
     def test_create_user(self):
         response = self.client.get(reverse('users:create'))
         self.assertEqual(response.status_code, OK_CODE)
@@ -69,20 +66,39 @@ class UserTestCase(TestCase):
         )
         respone = self.client.post(reverse('users:create'), data=NEW_USER,)
         self.assertEqual(respone.status_code, REDIRECT_CODE)
-        self.assertEqual(NEW_USER['first_name'], User.objects.get(pk=3).first_name)
-        self.assertEqual(NEW_USER['last_name'], User.objects.get(pk=3).last_name)
-        self.assertEqual(NEW_USER['username'], User.objects.get(pk=3).username)
-    
+        self.assertEqual(
+            NEW_USER['first_name'],
+            User.objects.get(pk=3).first_name
+        )
+        self.assertEqual(
+            NEW_USER['last_name'],
+            User.objects.get(pk=3).last_name
+        )
+        self.assertEqual(
+            NEW_USER['username'],
+            User.objects.get(pk=3).username
+        )
 
     def test_change_user(self):
         self.client.force_login(User.objects.get(pk=1))
         response = self.client.get(reverse('users:change', args='1'))
         self.assertEqual(response.status_code, OK_CODE)
-        response = self.client.post(reverse('users:change', args='1'), data=CHANGE_USER)
-        self.assertEqual(CHANGE_USER['first_name'], User.objects.get(pk=1).first_name)
-        self.assertEqual(CHANGE_USER['last_name'], User.objects.get(pk=1).last_name)
-        self.assertEqual(CHANGE_USER['username'], User.objects.get(pk=1).username)
-    
+        response = self.client.post(
+            reverse('users:change', args='1'),
+            data=CHANGE_USER
+        )
+        self.assertEqual(
+            CHANGE_USER['first_name'],
+            User.objects.get(pk=1).first_name
+        )
+        self.assertEqual(
+            CHANGE_USER['last_name'],
+            User.objects.get(pk=1).last_name
+        )
+        self.assertEqual(
+            CHANGE_USER['username'],
+            User.objects.get(pk=1).username
+        )
 
     def test_delete_user(self):
         self.client.force_login(User.objects.get(pk=1))
@@ -92,7 +108,7 @@ class UserTestCase(TestCase):
         self.assertEqual(response.status_code, REDIRECT_CODE)
         with self.assertRaises(User.DoesNotExist):
             User.objects.get(pk=1)
-    
+
     def test_another_delete_user(self):
         self.client.force_login(User.objects.get(pk=1))
         response = self.client.get(reverse('users:delete', args='2'))

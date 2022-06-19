@@ -15,6 +15,7 @@ django-bootstrap4 = "^22.1"
 django-filter = "^21.1"
 rollbar = "^0.16.3"
 python-dotenv = "^0.20.0"
+flake8 = "^4.0.1"
 
 [tool.poetry.dev-dependencies]
 gunicorn = "^20.1.0"

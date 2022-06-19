@@ -1,3 +1,9 @@
+install:
+	poetry install
+
+lint:
+	poetry run flake8
+
 runserver:
 	poetry run python manage.py runserver
 
@@ -6,8 +12,4 @@ translate:
 
 makemigrations:
 	poetry run python3 manage.py makemigrations
-	poetry run python3 manage.py migrate
-
-makemigrations_statuses:
-	poetry run python3 manage.py makemigrations statuses
 	poetry run python3 manage.py migrate
