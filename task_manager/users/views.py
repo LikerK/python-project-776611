@@ -1,5 +1,6 @@
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import User
+from django.contrib import messages
 from task_manager.constants.templates import USER, FORM, DELETE
 from task_manager.constants.success_urls import USERS_LIST, LOGIN
 from task_manager.constants.contexts.users import (

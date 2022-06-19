@@ -3,6 +3,7 @@ from .models import Task
 from task_manager.constants.templates import TASK, FORM, DELETE
 from task_manager.constants.success_urls import TASKS_LIST
 from django.contrib.auth.mixins import LoginRequiredMixin
+from task_manager.utils import CustomLoginRequiredMixin
 from .forms import TaskForm
 from task_manager.constants.contexts.common_constant import (
     TEXT,
@@ -34,7 +35,6 @@ from task_manager.utils import CustomDeleteMixin
 
 class TaskList(LoginRequiredMixin, FilterView):
     model = Task
-    login_url = 'login'
     template_name = TASK
     context_object_name = 'tasks'
     filterset_class = TaskFilter
@@ -63,7 +63,6 @@ class CreateTask(SuccessMessageMixin, LoginRequiredMixin, CreateView):
 class UpdateTask(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Task
     form_class = TaskForm
-    login_url = 'login'
     template_name = FORM
     success_url = TASKS_LIST
     success_message = CHANGE_TASK
@@ -75,13 +74,13 @@ class UpdateTask(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         return context
 
 
-class DeleteTask(CustomDeleteMixin):
+class DeleteTask(CustomLoginRequiredMixin, CustomDeleteMixin):
     model = Task
     template_name = DELETE
-    login_url = 'login'
     success_url = TASKS_LIST
     success_message = DELETE_TASK
     deletion_error_message = ERROR_DELETE_TASK
+    redirect_url = TASKS_LIST
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

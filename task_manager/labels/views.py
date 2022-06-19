@@ -22,7 +22,7 @@ from task_manager.constants.contexts.labels import (
     TITLE_CHANGE,
 )
 from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView
 from .models import Label
 from .forms import LabelForm
 from django.contrib.auth.mixins import LoginRequiredMixin

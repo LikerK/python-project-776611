@@ -9,11 +9,11 @@ from task_manager.constants.success_messages import ERROR_MESSAGE
 
 class CustomLoginRequiredMixin(AccessMixin):
     error_message = ERROR_MESSAGE
-
+    redirect_url = 'users:list'
     def dispatch(self, request, *args, **kwargs):
         if request.user != self.get_object():
             messages.error(self.request, self.error_message)
-            return redirect('users:list')
+            return redirect(self.redirect_url)
         return super().dispatch(request, *args, **kwargs)
 
 
