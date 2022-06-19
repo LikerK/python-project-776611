@@ -3,6 +3,10 @@ from django.utils.translation import gettext_lazy
 
 ERROR_MESSAGE = gettext_lazy('You are denied access to this action')
 
+
+#  home
+LOG_IN = gettext_lazy('You are logged in')
+LOG_OUT = gettext_lazy('You are not logged in')
 #  users
 CREATE_USER = gettext_lazy('Created user successfully')
 CHANGE_USER = gettext_lazy('Update user successfully')

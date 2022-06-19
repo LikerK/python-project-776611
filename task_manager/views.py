@@ -1,31 +1,39 @@
 from django.contrib.messages.views import SuccessMessageMixin
-from django.urls import reverse_lazy
 from django.views.generic.base import TemplateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
-from django.utils.translation import gettext_lazy
+from task_manager.constants.templates import FORM, INDEX
+from task_manager.constants.success_messages import LOG_IN, LOG_OUT
+from task_manager.constants.contexts.common_constant import TITLE, BUTTON_TEXT
+from task_manager.constants.contexts.home import (
+    NEXT_PAGE_HOME,
+    TITLE_LOGIN,
+    VALUE,
+    LOGIN,
+    BUTTON_TEXT_LOGIN,
+)
 
 
 class Index(TemplateView):
-    template_name = "index.html"
+    template_name = INDEX
 
 
 class LoginUser(SuccessMessageMixin, LoginView):
-    template_name = 'form.html'
-    next_page = reverse_lazy('home')
-    success_message = gettext_lazy('Perfect')
+    template_name = FORM
+    next_page = NEXT_PAGE_HOME
+    success_message = LOG_IN
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = gettext_lazy('Log in')
-        context['button_text'] = gettext_lazy('Log in')
-        context['value'] = 'login'
+        context[TITLE] = TITLE_LOGIN
+        context[BUTTON_TEXT] = BUTTON_TEXT_LOGIN
+        context[VALUE] = LOGIN
         return context
 
 
 class LogoutUser(SuccessMessageMixin, LogoutView):
-    next_page = reverse_lazy('home')
+    next_page = NEXT_PAGE_HOME
 
     def dispatch(self, request, *args, **kwargs):
-        messages.add_message(request, messages.INFO, gettext_lazy('Succsess'))
+        messages.add_message(request, messages.INFO, LOG_OUT)
         return super().dispatch(request, *args, **kwargs)
