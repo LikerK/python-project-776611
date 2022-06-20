@@ -6,3 +6,5 @@ DELETE_TITLE = gettext_lazy('Delete Task')
 CHANGE_TITLE = gettext_lazy('Change Task')
 LIST_TITLE = gettext_lazy('Tasks')
 SHOW = gettext_lazy('Show')
+TASK_DETAILS_TITLE = gettext_lazy('Task details')
+LABEL = 'label'

@@ -1,6 +1,6 @@
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DetailView
 from .models import Task
-from task_manager.constants.templates import TASK, FORM, DELETE
+from task_manager.constants.templates import TASK, FORM, DELETE, TASK_DETAILS
 from task_manager.constants.success_urls import TASKS_LIST
 from django.contrib.auth.mixins import LoginRequiredMixin
 from task_manager.utils import CustomLoginRequiredMixin
@@ -26,6 +26,8 @@ from task_manager.constants.contexts.tasks import (
     DELETE_TITLE,
     CHANGE_TITLE,
     SHOW,
+    TASK_DETAILS_TITLE,
+    LABEL,
 )
 from django.contrib.messages.views import SuccessMessageMixin
 from django_filters.views import FilterView
@@ -43,6 +45,18 @@ class TaskList(LoginRequiredMixin, FilterView):
         context = super().get_context_data(**kwargs)
         context[TITLE] = LIST_TITLE
         context[BUTTON_TEXT] = SHOW
+        return context
+
+
+class TaskDetails(SuccessMessageMixin, LoginRequiredMixin, DetailView):
+    model = Task
+    template_name = TASK_DETAILS
+    context_object_name = 'task_details'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context[TITLE] = TASK_DETAILS_TITLE
+        context[LABEL] = self.get_object().label.all()
         return context
 
 

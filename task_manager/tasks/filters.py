@@ -6,15 +6,15 @@ from task_manager.tasks.models import Task
 
 
 class TaskFilter(FilterSet):
+    label = ModelChoiceFilter(
+        queryset=Label.objects.all(),
+        label=gettext_lazy('Label'),
+    )
     own_tasks = BooleanFilter(
         field_name='author',
         label=gettext_lazy('Show own tasks'),
         method='filter_own_tasks',
         widget=CheckboxInput,
-    )
-    label = ModelChoiceFilter(
-        queryset=Label.objects.all(),
-        label=gettext_lazy('Label'),
     )
 
     def filter_own_tasks(self, queryset, name, value):
@@ -22,12 +22,11 @@ class TaskFilter(FilterSet):
             return queryset.filter(author=self.request.user)
         return queryset
 
-
-class Meta(object):
-    model = Task
-    fields = [
-        'status',
-        'executor',
-        'label',
-        'own_tasks',
-    ]
+    class Meta(object):
+        model = Task
+        fields = [
+            'status',
+            'executor',
+            'label',
+            'own_tasks',
+        ]
