@@ -9,8 +9,8 @@ from task_manager.labels.views import (
 app_name = 'labels'
 
 urlpatterns = [
-    path('labels/', LabelList.as_view(), name='list'),
-    path('labels/create/', CreateLabel.as_view(), name='create'),
-    path('labels/<int:pk>/update/', UpdateLabel.as_view(), name='change'),
-    path('labels/<int:pk>/delete/', DeleteLabel.as_view(), name='delete'),
+    path('', LabelList.as_view(), name='list'),
+    path('create/', CreateLabel.as_view(), name='create'),
+    path('<int:pk>/update/', UpdateLabel.as_view(), name='change'),
+    path('<int:pk>/delete/', DeleteLabel.as_view(), name='delete'),
 ]

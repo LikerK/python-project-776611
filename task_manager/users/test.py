@@ -113,3 +113,15 @@ class UserTestCase(TestCase):
         self.client.force_login(User.objects.get(pk=1))
         response = self.client.get(reverse('users:delete', args='2'))
         self.assertEqual(response.status_code, REDIRECT_CODE)
+    
+    def test_user_login(self):
+        response = self.client.get(reverse('login'))
+        self.assertEqual(response.status_code, OK_CODE)
+        self.assertTemplateUsed(response, template_name='form.html')
+        print(User.objects.get(pk=1).username)
+        response = self.client.post(reverse('login'), data={
+            'username': 'DjonSnow',
+            'password': 'firstuserpassword',
+        },
+        )
+        self.assertEqual(response.status_code, REDIRECT_CODE)
