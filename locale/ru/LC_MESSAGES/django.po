@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-22 20:44+0400\n"
+"POT-Creation-Date: 2022-06-22 20:56+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,6 +41,7 @@ msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
 #: task_manager/constants/contexts/home.py:6
+#: task_manager/constants/contexts/home.py:7
 msgid "Log in"
 msgstr "Войти"
 
@@ -57,6 +58,7 @@ msgid "Delete label"
 msgstr "Удаление метки"
 
 #: task_manager/constants/contexts/labels.py:7 task_manager/tasks/forms.py:21
+#: task_manager/tasks/models.py:45
 msgid "Labels"
 msgstr "Метки"
 
@@ -201,7 +203,6 @@ msgid "Date of create"
 msgstr "Дата создания"
 
 #: task_manager/labels/models.py:23 task_manager/tasks/filters.py:11
-#: task_manager/tasks/models.py:45
 msgid "Label"
 msgstr "Метка"
 

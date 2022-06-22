@@ -8,7 +8,9 @@ from task_manager.constants.contexts.common_constant import BUTTON_TEXT
 from task_manager.constants.contexts.home import (
     NEXT_PAGE_HOME,
     BUTTON_TEXT_LOGIN,
+    TITILE_LOGIN,
 )
+from task_manager.constants.contexts.common_constant import TITLE
 
 
 class Index(TemplateView):
@@ -22,6 +24,7 @@ class LoginUser(SuccessMessageMixin, LoginView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context[TITLE] = TITILE_LOGIN
         context[BUTTON_TEXT] = BUTTON_TEXT_LOGIN
         return context
 
