@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-22 17:37+0400\n"
+"POT-Creation-Date: 2022-06-22 19:19+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,8 +21,6 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: task_manager/constants/contexts/common_constant.py:4
-#: task_manager/constants/contexts/labels.py:4
-#: task_manager/constants/contexts/statuses.py:4
 msgid "Create"
 msgstr "Создать"
 
@@ -50,47 +48,61 @@ msgstr "Вы уверены, что хотите удалить"
 msgid "Log in"
 msgstr "Войти"
 
+#: task_manager/constants/contexts/labels.py:4
+#, fuzzy
+#| msgid "Change"
+msgid "Create label"
+msgstr "Создание метки"
+
 #: task_manager/constants/contexts/labels.py:5
 #, fuzzy
 #| msgid "Change"
 msgid "Change label"
-msgstr "Изменить"
+msgstr "Изменение метки"
 
 #: task_manager/constants/contexts/labels.py:6
 #, fuzzy
 #| msgid "Delete User"
-msgid "Delete Label"
-msgstr "Удалить"
+msgid "Delete label"
+msgstr "Удаление метки"
 
 #: task_manager/constants/contexts/labels.py:7
 msgid "Labels"
 msgstr "Метки"
 
+#: task_manager/constants/contexts/statuses.py:4
+#, fuzzy
+#| msgid "Created at"
+msgid "Create status"
+msgstr "Создание статуса"
+
 #: task_manager/constants/contexts/statuses.py:5
 #, fuzzy
 #| msgid "Delete User"
-msgid "Delete Status"
-msgstr "Удалить"
+msgid "Delete status"
+msgstr "Удаление статуса"
 
 #: task_manager/constants/contexts/statuses.py:6
 msgid "Statuses"
 msgstr "Статусы"
 
 #: task_manager/constants/contexts/tasks.py:4
-msgid "Create Task"
-msgstr "Создать задау"
+#, fuzzy
+#| msgid "Create Task"
+msgid "Create task"
+msgstr "Создание задачи"
 
 #: task_manager/constants/contexts/tasks.py:5
 #, fuzzy
 #| msgid "Delete User"
-msgid "Delete Task"
-msgstr "Удалить"
+msgid "Delete task"
+msgstr "Удаление задачи"
 
 #: task_manager/constants/contexts/tasks.py:6
 #, fuzzy
 #| msgid "Change"
-msgid "Change Task"
-msgstr "Изменить"
+msgid "Change task"
+msgstr "Изменение задачи"
 
 #: task_manager/constants/contexts/tasks.py:7
 msgid "Tasks"
