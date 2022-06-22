@@ -134,15 +134,15 @@ msgstr "Вы разлогинены"
 
 #: task_manager/constants/success_messages.py:11
 msgid "Created user successfully"
-msgstr "Пользователь успешно создан"
+msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/constants/success_messages.py:12
 msgid "Update user successfully"
-msgstr "Пользователь успешно изменен"
+msgstr "Пользователь успешно изменён"
 
 #: task_manager/constants/success_messages.py:13
 msgid "Delete user successfully"
-msgstr "Пользователь успешно удален"
+msgstr "Пользователь успешно удалён"
 
 #: task_manager/constants/success_messages.py:16
 msgid "Created task successfully"
