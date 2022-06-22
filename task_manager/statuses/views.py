@@ -25,7 +25,7 @@ from task_manager.constants.contexts.common_constant import (
     BUTTON_TEXT,
     CREATE_TEXT,
     CHANGE_TEXT,
-    DELETE_TEXT,
+    BUTTON_TEXT_DELETE,
 )
 
 # Create your views here.
@@ -80,6 +80,6 @@ class DeleteStatus(CustomDeleteMixin):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context[TITLE] = DELETE_TITLE
-        context[BUTTON_TEXT] = DELETE_TEXT
+        context[BUTTON_TEXT] = BUTTON_TEXT_DELETE
         context[TEXT] = TEXT_CONTENT
         return context

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-22 19:49+0400\n"
+"POT-Creation-Date: 2022-06-22 20:22+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,12 +33,8 @@ msgid "Change"
 msgstr "Изменить"
 
 #: task_manager/constants/contexts/common_constant.py:6
-#: task_manager/templates/labels.html:24
-#: task_manager/templates/statuses.html:24
-#: task_manager/templates/task_details.html:50
-#: task_manager/templates/tasks.html:43 task_manager/templates/users.html:26
-msgid "Delete"
-msgstr "Удалить"
+msgid "Yes, delete"
+msgstr "Да, удалить"
 
 #: task_manager/constants/contexts/common_constant.py:10
 msgid "Are you sure you want to delete"
@@ -119,10 +115,6 @@ msgstr "Пользователи"
 #: task_manager/constants/contexts/users.py:7
 msgid "Register"
 msgstr "Зарегистрировать"
-
-#: task_manager/constants/contexts/users.py:8
-msgid "Yes, delete"
-msgstr "Да, удалить"
 
 #: task_manager/constants/success_messages.py:4
 msgid "You are denied access to this action"
@@ -255,6 +247,13 @@ msgstr "Менеджер задач"
 #: task_manager/templates/users.html:12
 msgid "Date of creation"
 msgstr "Дата создания"
+
+#: task_manager/templates/labels.html:24
+#: task_manager/templates/statuses.html:24
+#: task_manager/templates/task_details.html:50
+#: task_manager/templates/tasks.html:43 task_manager/templates/users.html:26
+msgid "Delete"
+msgstr "Удалить"
 
 #: task_manager/templates/task_details.html:21
 #, fuzzy

@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy
 
 CREATE_TEXT = gettext_lazy('Create')
 CHANGE_TEXT = gettext_lazy('Change')
-DELETE_TEXT = gettext_lazy('Delete')
+BUTTON_TEXT_DELETE = gettext_lazy('Yes, delete')
 TITLE = 'title'
 BUTTON_TEXT = 'button_text'
 TEXT = 'text'

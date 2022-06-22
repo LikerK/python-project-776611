@@ -7,11 +7,10 @@ from task_manager.constants.contexts.users import (
     DELETE_TITLE,
     LIST_TITLE,
     BUTTON_TEXT_CREATE,
-    BUTTON_TEXT_DELETE,
 )
 from task_manager.constants.contexts.common_constant import (
     CHANGE_TEXT,
-    DELETE_TEXT,
+    BUTTON_TEXT_DELETE,
     TEXT, TITLE,
     BUTTON_TEXT,
     TEXT_CONTENT,
