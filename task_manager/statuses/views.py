@@ -16,6 +16,7 @@ from task_manager.constants.contexts.statuses import (
     CREATE_TITLE,
     LIST_TITLE,
     DELETE_TITLE,
+    CHANGE__TITLE,
 )
 from task_manager.constants.contexts.common_constant import (
     TEXT,
@@ -64,7 +65,7 @@ class UpdateStatus(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context[TITLE] = CHANGE_STATUS
+        context[TITLE] = CHANGE__TITLE
         context[BUTTON_TEXT] = CHANGE_TEXT
         return context
 

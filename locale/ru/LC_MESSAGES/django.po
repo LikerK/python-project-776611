@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-22 19:19+0400\n"
+"POT-Creation-Date: 2022-06-22 19:49+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,20 +49,14 @@ msgid "Log in"
 msgstr "Войти"
 
 #: task_manager/constants/contexts/labels.py:4
-#, fuzzy
-#| msgid "Change"
 msgid "Create label"
 msgstr "Создание метки"
 
 #: task_manager/constants/contexts/labels.py:5
-#, fuzzy
-#| msgid "Change"
 msgid "Change label"
 msgstr "Изменение метки"
 
 #: task_manager/constants/contexts/labels.py:6
-#, fuzzy
-#| msgid "Delete User"
 msgid "Delete label"
 msgstr "Удаление метки"
 
@@ -71,14 +65,10 @@ msgid "Labels"
 msgstr "Метки"
 
 #: task_manager/constants/contexts/statuses.py:4
-#, fuzzy
-#| msgid "Created at"
 msgid "Create status"
 msgstr "Создание статуса"
 
 #: task_manager/constants/contexts/statuses.py:5
-#, fuzzy
-#| msgid "Delete User"
 msgid "Delete status"
 msgstr "Удаление статуса"
 
@@ -86,21 +76,19 @@ msgstr "Удаление статуса"
 msgid "Statuses"
 msgstr "Статусы"
 
+#: task_manager/constants/contexts/statuses.py:7
+msgid "Change status"
+msgstr "Изменение статуса"
+
 #: task_manager/constants/contexts/tasks.py:4
-#, fuzzy
-#| msgid "Create Task"
 msgid "Create task"
 msgstr "Создание задачи"
 
 #: task_manager/constants/contexts/tasks.py:5
-#, fuzzy
-#| msgid "Delete User"
 msgid "Delete task"
 msgstr "Удаление задачи"
 
 #: task_manager/constants/contexts/tasks.py:6
-#, fuzzy
-#| msgid "Change"
 msgid "Change task"
 msgstr "Изменение задачи"
 
@@ -217,8 +205,6 @@ msgstr "Имя"
 
 #: task_manager/labels/models.py:16 task_manager/statuses/models.py:16
 #: task_manager/tasks/models.py:53
-#, fuzzy
-#| msgid "Date of creation"
 msgid "Date of create"
 msgstr "Дата создания"
 
