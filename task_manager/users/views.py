@@ -6,9 +6,9 @@ from task_manager.constants.contexts.users import (
     CREATE_TITLE,
     DELETE_TITLE,
     LIST_TITLE,
+    BUTTON_TEXT_CREATE,
 )
 from task_manager.constants.contexts.common_constant import (
-    CREATE_TEXT,
     CHANGE_TEXT,
     DELETE_TEXT,
     TEXT, TITLE,
@@ -47,7 +47,7 @@ class CreateUser(SuccessMessageMixin, CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context[TITLE] = CREATE_TITLE
-        context[BUTTON_TEXT] = CREATE_TEXT
+        context[BUTTON_TEXT] = BUTTON_TEXT_CREATE
         return context
 
 

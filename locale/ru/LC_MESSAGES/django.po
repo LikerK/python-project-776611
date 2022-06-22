@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-20 10:41+0400\n"
+"POT-Creation-Date: 2022-06-22 16:23+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,8 +46,7 @@ msgstr "Удалить"
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
-#: task_manager/constants/contexts/home.py:4
-#: task_manager/constants/contexts/home.py:8
+#: task_manager/constants/contexts/home.py:6
 msgid "Log in"
 msgstr "Войти"
 
@@ -116,6 +115,10 @@ msgstr "Удалить пользователя"
 #: task_manager/constants/contexts/users.py:6 task_manager/users/models.py:14
 msgid "Users"
 msgstr "Пользователи"
+
+#: task_manager/constants/contexts/users.py:7
+msgid "Register"
+msgstr "Зарегистрировать"
 
 #: task_manager/constants/success_messages.py:4
 msgid "You are denied access to this action"
@@ -241,7 +244,7 @@ msgstr "Автор"
 msgid "Task"
 msgstr "Задача"
 
-#: task_manager/templates/base.html:8
+#: task_manager/templates/base.html:6
 msgid "Task manager"
 msgstr "Менеджер задач"
 
@@ -280,6 +283,3 @@ msgstr "Полное имя"
 #: task_manager/users/models.py:13
 msgid "User"
 msgstr "Пользователь"
-
-#~ msgid "Register"
-#~ msgstr "Зарегестрироваться"
