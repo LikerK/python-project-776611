@@ -7,6 +7,7 @@ from task_manager.constants.contexts.users import (
     DELETE_TITLE,
     LIST_TITLE,
     BUTTON_TEXT_CREATE,
+    BUTTON_TEXT_DELETE,
 )
 from task_manager.constants.contexts.common_constant import (
     CHANGE_TEXT,
@@ -81,7 +82,7 @@ class DeleteUser(
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context[BUTTON_TEXT] = DELETE_TEXT
+        context[BUTTON_TEXT] = BUTTON_TEXT_DELETE
         context[TITLE] = DELETE_TITLE
         context[TEXT] = TEXT_CONTENT
         return context
