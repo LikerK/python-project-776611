@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-22 20:22+0400\n"
+"POT-Creation-Date: 2022-06-22 20:44+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,7 +56,7 @@ msgstr "Изменение метки"
 msgid "Delete label"
 msgstr "Удаление метки"
 
-#: task_manager/constants/contexts/labels.py:7
+#: task_manager/constants/contexts/labels.py:7 task_manager/tasks/forms.py:21
 msgid "Labels"
 msgstr "Метки"
 
@@ -189,7 +189,7 @@ msgid "Can't remove label because it used"
 msgstr "Невозможно удалить метку, потому что она используется"
 
 #: task_manager/labels/models.py:12 task_manager/statuses/models.py:12
-#: task_manager/tasks/forms.py:18 task_manager/tasks/models.py:16
+#: task_manager/tasks/forms.py:17 task_manager/tasks/models.py:16
 #: task_manager/templates/labels.html:11
 #: task_manager/templates/statuses.html:11
 msgid "Name"
@@ -201,11 +201,11 @@ msgid "Date of create"
 msgstr "Дата создания"
 
 #: task_manager/labels/models.py:23 task_manager/tasks/filters.py:11
-#: task_manager/tasks/forms.py:23 task_manager/tasks/models.py:45
+#: task_manager/tasks/models.py:45
 msgid "Label"
 msgstr "Метка"
 
-#: task_manager/statuses/models.py:23 task_manager/tasks/forms.py:21
+#: task_manager/statuses/models.py:23 task_manager/tasks/forms.py:19
 #: task_manager/tasks/models.py:26 task_manager/templates/task_details.html:29
 #: task_manager/templates/tasks.html:22
 msgid "Status"
@@ -215,15 +215,11 @@ msgstr "Статус"
 msgid "Show own tasks"
 msgstr "Показать свои задачи"
 
-#: task_manager/tasks/forms.py:19 task_manager/tasks/models.py:19
+#: task_manager/tasks/forms.py:18 task_manager/tasks/models.py:19
 msgid "Description"
 msgstr "Описание"
 
-#: task_manager/tasks/forms.py:20 task_manager/templates/tasks.html:23
-msgid "Author"
-msgstr "Автор"
-
-#: task_manager/tasks/forms.py:22 task_manager/tasks/models.py:37
+#: task_manager/tasks/forms.py:20 task_manager/tasks/models.py:37
 #: task_manager/templates/tasks.html:24
 msgid "Executor"
 msgstr "Исполнитель"
@@ -274,6 +270,10 @@ msgstr "Метки"
 #: task_manager/templates/tasks.html:21 task_manager/templates/users.html:10
 msgid "User name"
 msgstr "Имя пользователя"
+
+#: task_manager/templates/tasks.html:23
+msgid "Author"
+msgstr "Автор"
 
 #: task_manager/templates/users.html:11
 msgid "Full name"

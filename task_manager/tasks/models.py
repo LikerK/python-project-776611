@@ -40,13 +40,13 @@ class Task(models.Model):
         null=True,
         related_name='tasks_executor',
     )
-    label = models.ManyToManyField(
+    labels = models.ManyToManyField(
         Label,
-        verbose_name=gettext_lazy('Label'),
+        verbose_name=gettext_lazy('Labels'),
         blank=True,
         related_name='tasks',
         through='LabelTaskIntermediate',
-        through_fields=('task', 'label'),
+        through_fields=('task', 'labels'),
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
@@ -62,5 +62,5 @@ class Task(models.Model):
 
 
 class LabelTaskIntermediate(models.Model):
-    label = models.ForeignKey(Label, on_delete=models.RESTRICT)
+    labels = models.ForeignKey(Label, on_delete=models.RESTRICT)
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
