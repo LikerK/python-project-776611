@@ -1,5 +1,8 @@
-from django.views.generic import CreateView, UpdateView, DetailView
+from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 from .models import Task
+from django.contrib import messages
+from django.shortcuts import redirect
+from task_manager.users.models import User
 from task_manager.constants.templates import TASK, FORM, DELETE, TASK_DETAILS
 from task_manager.constants.success_urls import TASKS_LIST
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -32,7 +35,6 @@ from task_manager.constants.contexts.tasks import (
 from django.contrib.messages.views import SuccessMessageMixin
 from django_filters.views import FilterView
 from .filters import TaskFilter
-from task_manager.utils import CustomDeleteMixin
 
 
 class TaskList(LoginRequiredMixin, FilterView):
@@ -56,7 +58,7 @@ class TaskDetails(SuccessMessageMixin, LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context[TITLE] = TASK_DETAILS_TITLE
-        context[LABEL] = self.get_object().label.all()
+        context[LABEL] = self.get_object().labels.all()
         return context
 
 
@@ -66,6 +68,11 @@ class CreateTask(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     template_name = FORM
     success_url = TASKS_LIST
     success_message = CREATE_TASK
+    
+    def form_valid(self, form):
+        """Set author of task as active user."""
+        form.instance.author = User.objects.get(pk=self.request.user.pk)
+        return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -88,13 +95,30 @@ class UpdateTask(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         return context
 
 
-class DeleteTask(CustomLoginRequiredMixin, CustomDeleteMixin):
+class DeleteTask(
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    DeleteView,
+):
     model = Task
     template_name = DELETE
     success_url = TASKS_LIST
     success_message = DELETE_TASK
     error_message = ERROR_DELETE_TASK
     redirect_url = TASKS_LIST
+
+    def get(self, request, *args, **kwargs):
+        """GET requests method.
+        Returns:
+            Execute GET request or redirect
+            if user tries to delete not his own task.
+        """
+        if request.user != self.get_object().author:
+            messages.error(
+                self.request, self.unable_to_delete_others_tasks,
+            )
+            return redirect('tasks')
+        return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

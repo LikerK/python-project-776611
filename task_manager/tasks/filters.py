@@ -6,7 +6,7 @@ from task_manager.tasks.models import Task
 
 
 class TaskFilter(FilterSet):
-    label = ModelChoiceFilter(
+    labels = ModelChoiceFilter(
         queryset=Label.objects.all(),
         label=gettext_lazy('Label'),
     )
@@ -27,6 +27,6 @@ class TaskFilter(FilterSet):
         fields = [
             'status',
             'executor',
-            'label',
+            'labels',
             'own_tasks',
         ]

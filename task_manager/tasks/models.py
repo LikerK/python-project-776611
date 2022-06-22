@@ -28,7 +28,8 @@ class Task(models.Model):
     )
     author = models.ForeignKey(
         User,
-        on_delete=models.CASCADE,
+        null=False,
+        on_delete=models.PROTECT,
         verbose_name=gettext_lazy('Auhtor'),
         related_name='tasks_author',
     )
@@ -46,7 +47,7 @@ class Task(models.Model):
         blank=True,
         related_name='tasks',
         through='LabelTaskIntermediate',
-        through_fields=('task', 'labels'),
+        through_fields=('task', 'label'),
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
@@ -62,5 +63,5 @@ class Task(models.Model):
 
 
 class LabelTaskIntermediate(models.Model):
-    labels = models.ForeignKey(Label, on_delete=models.RESTRICT)
+    label = models.ForeignKey(Label, on_delete=models.RESTRICT)
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
