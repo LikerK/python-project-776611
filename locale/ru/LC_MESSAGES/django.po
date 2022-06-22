@@ -216,8 +216,6 @@ msgid "Show own tasks"
 msgstr "Показать свои задачи"
 
 #: task_manager/tasks/forms.py:19 task_manager/tasks/models.py:19
-#, fuzzy
-#| msgid "Registration"
 msgid "Description"
 msgstr "Описание"
 
