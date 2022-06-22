@@ -170,7 +170,7 @@ msgstr "Статус успешно создан"
 
 #: task_manager/constants/success_messages.py:23
 msgid "Update status successfully"
-msgstr "Сатус успешно изменён"
+msgstr "Статус успешно изменён"
 
 #: task_manager/constants/success_messages.py:24
 msgid "Delete status successfully"
