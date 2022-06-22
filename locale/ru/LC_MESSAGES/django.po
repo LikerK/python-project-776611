@@ -40,7 +40,7 @@ msgstr "Изменить"
 #: task_manager/templates/task_details.html:50
 #: task_manager/templates/tasks.html:43 task_manager/templates/users.html:26
 msgid "Delete"
-msgstr "Удалить"
+msgstr "Да, удалить"
 
 #: task_manager/constants/contexts/common_constant.py:10
 msgid "Are you sure you want to delete"
@@ -158,7 +158,7 @@ msgstr "Задача успешно удалена"
 
 #: task_manager/constants/success_messages.py:19
 msgid "A task can only be deleted by its author"
-msgstr "Задание может быть удалено только его автором"
+msgstr "Задачу может удалить только её автор
 
 #: task_manager/constants/success_messages.py:22
 msgid "Created status successfully"

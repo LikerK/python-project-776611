@@ -93,7 +93,7 @@ class DeleteTask(CustomLoginRequiredMixin, CustomDeleteMixin):
     template_name = DELETE
     success_url = TASKS_LIST
     success_message = DELETE_TASK
-    deletion_error_message = ERROR_DELETE_TASK
+    error_message = ERROR_DELETE_TASK
     redirect_url = TASKS_LIST
 
     def get_context_data(self, **kwargs):
