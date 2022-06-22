@@ -123,7 +123,7 @@ msgstr "Вам отказано в доступе к этому действию
 
 #: task_manager/constants/success_messages.py:8
 msgid "You are logged in"
-msgstr "Вы вошли в систему"
+msgstr "Вы залогинены"
 
 #: task_manager/constants/success_messages.py:9
 msgid "You are not logged in"
@@ -163,11 +163,11 @@ msgstr "Статус успешно создан"
 
 #: task_manager/constants/success_messages.py:23
 msgid "Update status successfully"
-msgstr "Сатус успешно изменен"
+msgstr "Сатус успешно изменён"
 
 #: task_manager/constants/success_messages.py:24
 msgid "Delete status successfully"
-msgstr "Статус успешно удален"
+msgstr "Статус успешно удалён"
 
 #: task_manager/constants/success_messages.py:25
 msgid "Can't remove status because it used"
