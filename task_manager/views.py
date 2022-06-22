@@ -1,6 +1,6 @@
+from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.base import TemplateView
-from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
 from task_manager.constants.templates import FORM, INDEX
 from task_manager.constants.success_messages import LOG_IN, LOG_OUT

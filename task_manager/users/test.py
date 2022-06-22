@@ -118,10 +118,10 @@ class UserTestCase(TestCase):
         response = self.client.get(reverse('login'))
         self.assertEqual(response.status_code, OK_CODE)
         self.assertTemplateUsed(response, template_name='form.html')
-        print(User.objects.get(pk=1).username)
+        print(User.objects.get(pk=1).password)
         response = self.client.post(reverse('login'), data={
             'username': 'DjonSnow',
             'password': 'firstuserpassword',
         },
         )
-        self.assertEqual(response.status_code, REDIRECT_CODE)
+        self.assertRedirects(response, reverse('home'), status_code=320, target_status_code=200)

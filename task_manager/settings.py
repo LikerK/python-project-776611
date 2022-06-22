@@ -77,6 +77,7 @@ ROLLBAR = {
     'root': BASE_DIR,
  }
 rollbar.init(**ROLLBAR)
+
 AUTH_USER_MODEL = 'users.User'
 ROOT_URLCONF = 'task_manager.urls'
 
@@ -127,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = os.getenv('LOCALE', default='ru')
 
 LANGUAGES = (
     ("en", "English"),
