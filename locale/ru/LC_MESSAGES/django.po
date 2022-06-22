@@ -127,7 +127,7 @@ msgstr "Вы залогинены"
 
 #: task_manager/constants/success_messages.py:9
 msgid "You are not logged in"
-msgstr "Вы разлогенены"
+msgstr "Вы разлогинены"
 
 #: task_manager/constants/success_messages.py:11
 msgid "Created user successfully"
