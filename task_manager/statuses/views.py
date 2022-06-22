@@ -41,7 +41,7 @@ class StatusList(LoginRequiredMixin, ListView):
         return context
 
 
-class CreateStatus(SuccessMessageMixin, LoginRequiredMixin, CreateView):
+class CreateStatus(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Status
     form_class = StatusForm
     template_name = FORM
