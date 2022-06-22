@@ -103,7 +103,7 @@ msgstr "Показать"
 
 #: task_manager/constants/contexts/tasks.py:9
 msgid "Task details"
-msgstr "Сведения о задаче"
+msgstr "Просмотр задачи"
 
 #: task_manager/constants/contexts/users.py:4
 msgid "Registration"
