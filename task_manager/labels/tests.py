@@ -31,7 +31,7 @@ class LabelsTestCase(TestCase):
             status=status_for_task,
             author=user,
         )
-        task.label.add(label_for_task)
+        task.labels.add(label_for_task)
         self.client.force_login(user)
 
     def test_labels_list(self):

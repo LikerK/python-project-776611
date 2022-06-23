@@ -6,7 +6,6 @@ from task_manager.users.models import User
 from task_manager.constants.templates import TASK, FORM, DELETE, TASK_DETAILS
 from task_manager.constants.success_urls import TASKS_LIST
 from django.contrib.auth.mixins import LoginRequiredMixin
-from task_manager.utils import CustomLoginRequiredMixin
 from .forms import TaskForm
 from task_manager.constants.contexts.common_constant import (
     TEXT,
@@ -68,7 +67,7 @@ class CreateTask(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     template_name = FORM
     success_url = TASKS_LIST
     success_message = CREATE_TASK
-    
+
     def form_valid(self, form):
         """Set author of task as active user."""
         form.instance.author = User.objects.get(pk=self.request.user.pk)
@@ -108,16 +107,12 @@ class DeleteTask(
     redirect_url = TASKS_LIST
 
     def get(self, request, *args, **kwargs):
-        """GET requests method.
-        Returns:
-            Execute GET request or redirect
-            if user tries to delete not his own task.
-        """
+        """Delete a task only if the user is its creator"""
         if request.user != self.get_object().author:
             messages.error(
-                self.request, self.unable_to_delete_others_tasks,
+                self.request, self.error_message,
             )
-            return redirect('tasks')
+            return redirect('tasks:list')
         return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
