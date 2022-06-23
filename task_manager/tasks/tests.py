@@ -79,7 +79,7 @@ class TaskTestCase(TestCase):
         self.assertEqual(
             'status_for_update',
             Task.objects.get(pk=1).status.name
-            )
+        )
 
     def test_delete_task(self):
         self.client.force_login(User.objects.get(pk=1))

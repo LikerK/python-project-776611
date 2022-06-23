@@ -1,3 +1,4 @@
+# flake8: noqa
 """
 Django settings for task_manager project.
 
@@ -22,9 +23,12 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
 BOOTSTRAP4_FOLDER = os.path.abspath(os.path.join(BASE_DIR, "..", "bootstrap4"))
 if BOOTSTRAP4_FOLDER not in sys.path:
     sys.path.insert(0, BOOTSTRAP4_FOLDER)
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -75,7 +79,7 @@ ROLLBAR = {
     'access_token': os.environ.get('ROLLBAR_TOKEN'),
     'environment': 'development' if DEBUG else 'production',
     'root': BASE_DIR,
- }
+}
 rollbar.init(**ROLLBAR)
 
 AUTH_USER_MODEL = 'users.User'
@@ -109,10 +113,11 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-database = dj_database_url.config(conn_max_age=500, ssl_require=False)
 
+database = dj_database_url.config(conn_max_age=500, ssl_require=False)
 if database:
     locals()['DATABASES']['default'] = database
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

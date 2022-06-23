@@ -48,7 +48,8 @@ class LabelsTestCase(TestCase):
         self.assertEqual(response.status_code, OK_CODE)
         response = self.client.post(reverse('labels:create'), data={
             'name': 'test_status3'
-            },)
+            },
+        )
         self.assertEqual(response.status_code, REDIRECT_CODE)
         self.assertEqual('test_status3', Label.objects.get(pk=3).name)
 
@@ -57,7 +58,8 @@ class LabelsTestCase(TestCase):
         self.assertEqual(response.status_code, OK_CODE)
         response = self.client.post(reverse('labels:change', args='1'), data={
             'name': 'test_change_status'
-            },)
+            },
+        )
         self.assertEqual(response.status_code, REDIRECT_CODE)
         self.assertEqual('test_change_status', Label.objects.get(pk=1).name)
 
