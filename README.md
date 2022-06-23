@@ -1,3 +1,15 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/LikerK/python-project-lvl4/workflows/hexlet-check/badge.svg)](https://github.com/LikerK/python-project-lvl4/actions)
-[![example workflow](https://github.com/LikerK/python-project-lvl4/workflows/my_linter/badge.svg)](https://github.com/LikerK/python-project-lvl4/actions/workflows/my_linter.yml)
+[![Linter CI](https://github.com/LikerK/python-project-lvl4/actions/workflows/my_linter.yml/badge.svg)](https://github.com/LikerK/python-project-lvl4/actions/workflows/my_linter.yml)
+
+---
+## Description
+
+**Task Manager** is a task management system. It allows you to set tasks, assign performers and change their statuses. Registration and authentication are required to work with the system.
+
+---
+## Deployment
+
+**Task manager** is deployed on heroku, you can go and test this project.
+
+[![Heroku](https://pyheroku-badge.herokuapp.com/?app=immense-wave-07675&style=flat)](https://immense-wave-07675.herokuapp.com)
