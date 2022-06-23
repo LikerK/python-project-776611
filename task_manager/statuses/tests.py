@@ -42,7 +42,7 @@ class StatusTestCase(TestCase):
         self.assertEqual(response.status_code, OK_CODE)
         response = self.client.post(reverse('statuses:create'), data={
             'name': 'test_status3'
-            },
+        },
         )
         self.assertEqual(response.status_code, REDIRECT_CODE)
         self.assertEqual('test_status3', Status.objects.get(pk=3).name)
@@ -52,7 +52,7 @@ class StatusTestCase(TestCase):
         self.assertEqual(response.status_code, OK_CODE)
         response = self.client.post(reverse('statuses:change', args='1'), data={  # noqa: E501
             'name': 'test_change_status'
-            },
+        },
         )
         self.assertEqual(response.status_code, REDIRECT_CODE)
         self.assertEqual('test_change_status', Status.objects.get(pk=1).name)

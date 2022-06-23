@@ -72,7 +72,7 @@ class TaskTestCase(TestCase):
             'description': 'test',
             'status': 2,
             'labels': 1,
-            }
+        },
         )
         self.assertEqual(response.status_code, REDIRECT_CODE)
         self.assertEqual('test_update', Task.objects.get(pk=1).name)
