@@ -18,6 +18,8 @@ jobs:
           pip install poetry
           make install
           make lint
+      - name: Run test
+        run: make test
       - name: coverage-report
         uses: paambaati/codeclimate-action@v2.7.5
         env:
