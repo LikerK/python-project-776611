@@ -18,3 +18,9 @@ jobs:
           pip install poetry
           make install
           make lint
+      - name: coverage-report
+        uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make coverage

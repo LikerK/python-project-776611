@@ -19,3 +19,6 @@ compile:
 migrations:
 	poetry run python3 manage.py makemigrations
 	poetry run python3 manage.py migrate
+
+coverage:
+	coverage run --source='.' manage.py test task_manager
