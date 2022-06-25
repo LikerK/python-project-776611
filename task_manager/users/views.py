@@ -1,29 +1,29 @@
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import User
-from task_manager.constants.templates import USER, FORM, DELETE
-from task_manager.constants.success_urls import USERS_LIST, LOGIN
-from task_manager.constants.contexts.users import (
+from task_manager.users.constans import (
     CREATE_TITLE,
     DELETE_TITLE,
     LIST_TITLE,
     BUTTON_TEXT_CREATE,
-)
-from task_manager.constants.contexts.common_constant import (
-    CHANGE_TEXT,
-    BUTTON_TEXT_DELETE,
-    TEXT, TITLE,
-    BUTTON_TEXT,
-    TEXT_CONTENT,
-)
-from task_manager.constants.success_messages import (
+    USER,
+    FORM,
+    DELETE,
+    USERS_LIST,
     CREATE_USER,
     CHANGE_USER,
     DELETE_USER,
+    CHANGE_TEXT,
+    BUTTON_TEXT_DELETE,
+    TITLE,
+    BUTTON_TEXT,
+    TEXT,
+    TEXT_CONTENT,
+    LOGIN,
 )
 from .forms import UserForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from task_manager.utils import CustomLoginRequiredMixin
+from task_manager.mixins import CustomLoginRequiredMixin
 
 
 class UserList(ListView):

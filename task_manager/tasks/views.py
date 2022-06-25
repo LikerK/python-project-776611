@@ -3,11 +3,9 @@ from .models import Task
 from django.contrib import messages
 from django.shortcuts import redirect
 from task_manager.users.models import User
-from task_manager.constants.templates import TASK, FORM, DELETE, TASK_DETAILS
-from task_manager.constants.success_urls import TASKS_LIST
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import TaskForm
-from task_manager.constants.contexts.common_constant import (
+from task_manager.tasks.constants import (
     TEXT,
     TEXT_CONTENT,
     TITLE,
@@ -15,20 +13,21 @@ from task_manager.constants.contexts.common_constant import (
     CREATE_TEXT,
     CHANGE_TEXT,
     BUTTON_TEXT_DELETE,
-)
-from task_manager.constants.success_messages import (
+    TASK,
+    FORM,
+    DELETE,
+    TASKS_LIST,
     CREATE_TASK,
     CHANGE_TASK,
     DELETE_TASK,
     ERROR_DELETE_TASK,
-)
-from task_manager.constants.contexts.tasks import (
     CREATE_TITLE,
-    LIST_TITLE,
     DELETE_TITLE,
     CHANGE_TITLE,
+    TASK_TITLE,
     SHOW,
     TASK_DETAILS_TITLE,
+    TASK_DETAILS,
     LABEL,
 )
 from django.contrib.messages.views import SuccessMessageMixin
@@ -44,7 +43,7 @@ class TaskList(LoginRequiredMixin, FilterView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context[TITLE] = LIST_TITLE
+        context[TITLE] = TASK_TITLE
         context[BUTTON_TEXT] = SHOW
         return context
 

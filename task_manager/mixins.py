@@ -5,11 +5,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import AccessMixin
 from django.db.models import ProtectedError, RestrictedError
-from task_manager.constants.success_messages import ERROR_MESSAGE
 
 
 class CustomLoginRequiredMixin(AccessMixin):
-    error_message = ERROR_MESSAGE
+    error_message = None
     redirect_url = 'users:list'
 
     def dispatch(self, request, *args, **kwargs):

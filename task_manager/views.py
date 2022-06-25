@@ -2,15 +2,17 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.base import TemplateView
 from django.contrib import messages
-from task_manager.constants.templates import FORM, INDEX
-from task_manager.constants.success_messages import LOG_IN, LOG_OUT
-from task_manager.constants.contexts.common_constant import BUTTON_TEXT
-from task_manager.constants.contexts.home import (
+from task_manager.constants import (
     NEXT_PAGE_HOME,
     LOGIN,
     INPUT,
+    INDEX,
+    FORM,
+    LOG_IN,
+    LOG_OUT,
+    TITLE,
+    BUTTON_TEXT
 )
-from task_manager.constants.contexts.common_constant import TITLE
 
 
 class Index(TemplateView):
