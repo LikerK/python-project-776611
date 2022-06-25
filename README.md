@@ -1,6 +1,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/LikerK/python-project-lvl4/workflows/hexlet-check/badge.svg)](https://github.com/LikerK/python-project-lvl4/actions)
 [![Linter CI](https://github.com/LikerK/python-project-lvl4/actions/workflows/my_linter.yml/badge.svg)](https://github.com/LikerK/python-project-lvl4/actions/workflows/my_linter.yml)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/3a99b26593519d15d952/test_coverage)](https://codeclimate.com/github/LikerK/python-project-lvl4/test_coverage)
 
 ---
 ## Description
