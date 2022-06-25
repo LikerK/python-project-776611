@@ -21,4 +21,4 @@ migrations:
 	poetry run python3 manage.py migrate
 
 coverage:
-	coverage run --source='.' manage.py test task_manager
+	poetry run coverage xml
