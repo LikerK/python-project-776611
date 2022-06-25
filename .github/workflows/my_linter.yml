@@ -20,6 +20,8 @@ jobs:
           make lint
       - name: Run test
         run: make test
+        env:
+          SECRET_KEY: ${{ secreets.SECRET_KEY }}
       - name: coverage-report
         uses: paambaati/codeclimate-action@v2.7.5
         env:
